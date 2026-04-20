@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { navigation } from "../../data/masterData";
 
 const productColumns = navigation.header.find((item) => item.variant === "mega")?.columns ?? [];
@@ -24,6 +24,11 @@ function Header({ pathname, onMenuToggle }) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useLayoutEffect(() => {
+    setIsAtTop(true);
+    setIsStuck(false);
+  }, [pathname]);
 
   const activeMainPath = useMemo(() => {
     if (pathname.startsWith("/products")) {

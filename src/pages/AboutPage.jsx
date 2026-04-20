@@ -369,11 +369,11 @@ function AboutPage() {
               transitionDelay: isSecondRow ? "650ms" : "0ms",
             }}
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/5 shadow-[0_0_10px_rgba(143,31,255,0.08)]">
+            <div className="about-value-icon flex h-16 w-16 items-center justify-center">
               <img
                 src={value.icon}
                 alt={value.title}
-                className="h-9 w-9 object-contain"
+                className="about-value-icon-image h-9 w-9 object-contain"
               />
             </div>
  

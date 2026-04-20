@@ -51,7 +51,7 @@ const partnerItems = [
 const partnersCarouselConfig = {
   autoplay: true,
   autoplayTimeout: 3600,
-  smartSpeed: 900,
+  smartSpeed: 5200,
   responsive: {
     0: { items: 1 },
     576: { items: 2 },

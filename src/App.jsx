@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useLayoutEffect, useState } from "react";
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -26,12 +26,13 @@ function SiteLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(110);
   const isHomePage = location.pathname === "/";
+  const isProductsPage = location.pathname.startsWith("/products");
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
 
@@ -40,7 +41,7 @@ function SiteLayout() {
     return () => document.body.classList.remove("mobile-menu-open");
   }, [isMobileMenuOpen]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const headerElement = document.getElementById("header-section");
     if (!headerElement) {
       return undefined;
@@ -72,7 +73,7 @@ function SiteLayout() {
 
   return (
     <div
-      className={`legacy-site-shell min-h-screen bg-black text-white${isHomePage ? " is-home-page" : " is-inner-page"}`}
+      className={`legacy-site-shell min-h-screen bg-black text-white${isHomePage ? " is-home-page" : " is-inner-page"}${isProductsPage ? " is-products-page" : ""}`}
       style={{ "--site-header-height": `${headerHeight}px` }}
     >
       <div id="thetop" />

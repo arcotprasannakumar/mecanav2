@@ -47,15 +47,15 @@ function ProductGallery({ images, title }) {
 
 function ProductSpecsTable({ specs }) {
   return (
-    <div className="overflow-hidden border border-white/10 bg-black shadow-[0_0_28px_rgba(255,255,255,0.05)]">
+    <div className="overflow-hidden border border-white/10 bg-black">
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse">
           <thead>
-            <tr className="bg-[#242424] text-left text-white">
-              <th className="border-r border-white/10 px-5 py-4 text-sm font-semibold uppercase">
+            <tr className="border-b border-white/35 bg-[#242424] text-left text-white">
+              <th className="border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase">
                 Feature
               </th>
-              <th className="px-5 py-4 text-sm font-semibold uppercase">
+              <th className="px-5 py-3 text-sm font-semibold uppercase">
                 Value
               </th>
             </tr>
@@ -64,14 +64,20 @@ function ProductSpecsTable({ specs }) {
             {specs.map((spec, index) => (
               <tr
                 key={`${spec.feature}-${index}`}
-                className={`group transition duration-300 hover:relative hover:z-[1] hover:shadow-[0_0_22px_rgba(255,255,255,0.22)] ${
-                  index % 2 === 0 ? "bg-[#090909]" : "bg-[#171717]"
-                }`}
+                className="group"
               >
-                <td className="border-r border-white/10 px-5 py-4 text-sm font-semibold uppercase text-white/60 transition duration-300 group-hover:text-white">
+                <td
+                  className={`border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase text-white/60 transition-colors duration-200 group-hover:bg-[#333333] group-hover:text-white ${
+                    index % 2 === 0 ? "bg-[#202020]" : "bg-[#151515]"
+                  }`}
+                >
                   {spec.feature}
                 </td>
-                <td className="px-5 py-4 text-sm font-semibold text-white/90">
+                <td
+                  className={`px-5 py-3 text-sm font-semibold text-white/90 transition-colors duration-200 group-hover:bg-[#333333] ${
+                    index % 2 === 0 ? "bg-[#0b0b0b]" : "bg-[#141414]"
+                  }`}
+                >
                   {spec.value}
                 </td>
               </tr>

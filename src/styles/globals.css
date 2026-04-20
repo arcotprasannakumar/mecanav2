@@ -50,9 +50,13 @@ main {
 
 .legacy-site-shell.is-inner-page main {
   padding-top: var(--site-header-height, 110px);
-  transition: padding-top 0.3s ease;
   overflow: visible !important;
 }
+
+.legacy-site-shell.is-products-page main {
+  padding-top: max(var(--site-header-height, 145px), 145px);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -376,6 +380,7 @@ main {
   width: 200px;
   max-width: 200px;
   display: inline-block;
+  margin-left: 12px;
 }
 
 .header-section .brand-logo > a > img {
@@ -439,6 +444,7 @@ main {
   position: relative;
   display: flex;
   justify-content: flex-end;
+  transform: translate(-10px, -4px);
 }
 
 .header-section .main-menu > ul {
@@ -482,7 +488,7 @@ main {
 .header-section .main-menu > ul > li > .menu-trigger.active {
   color: #fff;
   border-bottom: 2px solid #fff;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 
 .menu-trigger {
@@ -612,11 +618,11 @@ main {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 24px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.82);
+  width: 30px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.96);
   border-radius: 3px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.76), 0 0 24px rgba(255, 255, 255, 0.36);
 }
 
 .spotlight::after {
@@ -625,11 +631,11 @@ main {
   top: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 88px;
+  width: 106px;
   height: 80px;
-  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0) 78%);
-  clip-path: polygon(47% 0, 53% 0, 88% 100%, 12% 100%);
-  filter: blur(3px);
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 83%);
+  clip-path: polygon(46% 0, 54% 0, 90% 100%, 10% 100%);
+  filter: blur(3.5px);
   z-index: 1;
 }
 
@@ -869,6 +875,59 @@ main {
 
 .copyright p {
   color: #8a8a8a;
+}
+
+.about-page .about-value-icon {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+
+.about-page .about-value-icon-image {
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.75))
+    drop-shadow(0 0 11px rgba(34, 211, 238, 0.5));
+  animation: aboutValueIconImageGlow 2.8s ease-in-out infinite;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.about-page article:hover .about-value-icon {
+  transform: translateY(-2px);
+}
+
+.about-page article:hover .about-value-icon-image {
+  transform: scale(1.05);
+  animation: aboutValueIconImageHoverGlow 1.2s ease-in-out infinite;
+}
+
+@keyframes aboutValueIconImageGlow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.58))
+      drop-shadow(0 0 8px rgba(34, 211, 238, 0.34));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 7px rgba(255, 255, 255, 0.95))
+      drop-shadow(0 0 18px rgba(34, 211, 238, 0.78));
+  }
+}
+
+@keyframes aboutValueIconImageHoverGlow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 7px rgba(255, 255, 255, 0.92))
+      drop-shadow(0 0 17px rgba(34, 211, 238, 0.78));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 10px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 26px rgba(34, 211, 238, 0.98));
+  }
 }
 
 .legacy-home-page .hero-slider-container {
@@ -1895,6 +1954,10 @@ main {
 
   .legacy-site-shell.is-inner-page main {
     padding-top: var(--site-header-height, 84px);
+  }
+
+  .legacy-site-shell.is-products-page main {
+    padding-top: max(var(--site-header-height, 84px), 84px);
   }
 
   .legacy-controller-wrap {
