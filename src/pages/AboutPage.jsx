@@ -373,7 +373,7 @@ function AboutPage() {
               <img
                 src={value.icon}
                 alt={value.title}
-                className="about-value-icon-image h-9 w-9 object-contain"
+                className="about-value-icon-image h-12 w-12 object-contain"
               />
             </div>
  

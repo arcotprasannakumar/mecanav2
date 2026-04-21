@@ -45,43 +45,89 @@ function ProductGallery({ images, title }) {
   );
 }
 
+// function ProductSpecsTable({ specs }) {
+//   return (
+//     <div className="overflow-hidden border border-white/10 bg-black">
+//       <div className="overflow-x-auto">
+//         <table className="min-w-full border-collapse">
+//           <thead>
+//             <tr className="border-b border-white/35 bg-[#242424] text-left text-white">
+//               <th className="border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase">
+//                 Feature
+//               </th>
+//               <th className="px-5 py-3 text-sm font-semibold uppercase">
+//                 Value
+//               </th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {specs.map((spec, index) => (
+//               <tr
+//                 key={`${spec.feature}-${index}`}
+//                 className="group"
+//               >
+//                 <td
+//                   className={`border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase text-white/60 transition-colors duration-200 group-hover:bg-[#333333] group-hover:text-white ${
+//                     index % 2 === 0 ? "bg-[#202020]" : "bg-[#151515]"
+//                   }`}
+//                 >
+//                   {spec.feature}
+//                 </td>
+//                 <td
+//                   className={`px-5 py-3 text-sm font-semibold text-white/90 transition-colors duration-200 group-hover:bg-[#333333] ${
+//                     index % 2 === 0 ? "bg-[#0b0b0b]" : "bg-[#141414]"
+//                   }`}
+//                 >
+//                   {spec.value}
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   );
+// }
 function ProductSpecsTable({ specs }) {
   return (
-    <div className="overflow-hidden border border-white/10 bg-black">
+    <div className="overflow-hidden border border-[#3a3a3a] bg-black">
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse">
           <thead>
-            <tr className="border-b border-white/35 bg-[#242424] text-left text-white">
-              <th className="border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase">
+            <tr className="border-b border-[#4a4a4a] bg-[#2a2727] text-left text-white">
+              <th className="border-r border-[#4a4a4a] px-5 py-4 text-sm font-semibold uppercase">
                 Feature
               </th>
-              <th className="px-5 py-3 text-sm font-semibold uppercase">
+              <th className="px-5 py-4 text-sm font-semibold uppercase">
                 Value
               </th>
             </tr>
           </thead>
+ 
           <tbody>
-            {specs.map((spec, index) => (
-              <tr
-                key={`${spec.feature}-${index}`}
-                className="group"
-              >
-                <td
-                  className={`border-r border-white/10 px-5 py-3 text-sm font-semibold uppercase text-white/60 transition-colors duration-200 group-hover:bg-[#333333] group-hover:text-white ${
-                    index % 2 === 0 ? "bg-[#202020]" : "bg-[#151515]"
-                  }`}
-                >
-                  {spec.feature}
-                </td>
-                <td
-                  className={`px-5 py-3 text-sm font-semibold text-white/90 transition-colors duration-200 group-hover:bg-[#333333] ${
-                    index % 2 === 0 ? "bg-[#0b0b0b]" : "bg-[#141414]"
-                  }`}
-                >
-                  {spec.value}
-                </td>
-              </tr>
-            ))}
+            {specs.map((spec, index) => {
+              const isEvenRow = index % 2 === 0;
+ 
+              return (
+                <tr key={`${spec.feature}-${index}`} className="group">
+                  <td
+                    className={`border-r border-[#3f3f3f] px-5 py-4 text-sm font-semibold uppercase text-white/60 transition-colors duration-200 ${
+                      isEvenRow ? "bg-[#1c1c1e]" : "bg-[#0d0d0f]"
+                    } group-hover:bg-[#3b3b3b]`}
+                  >
+                    {spec.feature}
+                  </td>
+ 
+                  <td
+                    className={`px-5 py-4 text-sm font-semibold text-white/90 transition-colors duration-200 ${
+                      isEvenRow ? "bg-[#0d0d0f]" : "bg-[#1c1c1e]"
+                    } group-hover:bg-[#3b3b3b]`}
+                  >
+                    {spec.value}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

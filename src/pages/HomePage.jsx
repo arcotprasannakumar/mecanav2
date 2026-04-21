@@ -70,7 +70,7 @@ const homeCatalogueCards = [
 const faqItems = [
   {
     question: "What is your delivery timeline?",
-    answer: "Our standard delivery time is 5-7 working days, depending on product availability and project scope.",
+    answer: "Our standard delivery time is 5-7",
   },
   {
     question: "Do you offer installation services?",
@@ -488,8 +488,13 @@ function HomeLegacyFaqContactSection() {
         <section className="home-faq-panel" style={{ backgroundImage: `url(${faqBg})` }}>
           <div className="image-mask" />
           <div className="row justify-content-center mb-5 position-relative" style={{ zIndex: 1 }}>
-            <div className="col-lg-11 col-xl-10 mx-auto">
-              <h2 className="text-center mb-4 text-uppercase fw-semibold fs-4" style={{ color: "#e0e0e0" }}>FAQ</h2>
+            <div className="col-lg-11 col-xl-10 mx-auto home-faq-content">
+              <h2
+  className="text-center mb-3 text-uppercase fw-semibold fs-4"
+  style={{ color: "#e0e0e0" }}
+>
+  FAQ
+</h2>
               <div className="accordion-faq">
                 {faqItems.map((item, index) => (
                   <div key={item.question} className={`faq-box faq-bg${activeFaq === index ? " active" : ""}`}>
