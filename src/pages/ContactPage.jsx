@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaChevronRight, FaHome } from "react-icons/fa";
+import { FaChevronRight, FaEnvelope, FaHome, FaMapMarkerAlt, FaMinus, FaPlus } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaPinterestP,
+  FaRedditAlien,
+  FaTelegramPlane,
+  FaTiktok,
+  FaTwitter,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
 import { locations, navigation } from "../data/masterData";
 import PageMeta from "../components/PageMeta";
 import StatusPanel from "../components/StatusPanel";
@@ -28,6 +41,34 @@ const formFields = [
   { name: "message", label: "Message", required: true },
 ];
 
+const socialIconMap = {
+  Facebook: FaFacebookF,
+  Instagram: FaInstagram,
+  Threads: FaThreads,
+  X: FaTwitter,
+  YouTube: FaYoutube,
+  LinkedIn: FaLinkedinIn,
+  Pinterest: FaPinterestP,
+  WhatsApp: FaWhatsapp,
+  TikTok: FaTiktok,
+  Reddit: FaRedditAlien,
+  Telegram: FaTelegramPlane,
+};
+
+const contactSocialOrder = [
+  "Facebook",
+  "Instagram",
+  "Threads",
+  "X",
+  "LinkedIn",
+  "Pinterest",
+  "YouTube",
+  "Reddit",
+  "WhatsApp",
+  "Telegram",
+  "TikTok",
+];
+
 function validateEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value ?? "").trim());
 }
@@ -53,10 +94,10 @@ function ContactInfoCard({ text, href, icon, iconColor = "text-white" }) {
 
   return (
     <div className="flex items-center gap-3">
-      <div className={`flex h-6 w-6 items-center justify-center text-[20px] ${iconColor}`}>
+      <div className={`flex h-5 w-5 shrink-0 items-center justify-center text-[14px] ${iconColor}`}>
         {icon}
       </div>
-      <div className="text-[16px] font-normal text-white/95">{content}</div>
+      <div className="text-[14px] font-normal text-white/95">{content}</div>
     </div>
   );
 }
@@ -103,7 +144,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="min-h-[520px] rounded-[16px] bg-[#171717] px-8 py-9 sm:px-8 sm:py-9">
+    <div className="min-h-[330px] rounded-[12px] bg-[#171717] px-6 py-7 sm:px-8 sm:py-8">
       <form
         ref={formRef}
         action="https://docs.google.com/forms/d/e/1FAIpQLSciugRivuyedJbIg43J4NRSpY_Dkws23M4re6GvCv8WaX8ogQ/formResponse"
@@ -112,40 +153,40 @@ function ContactForm() {
         onSubmit={handleSubmit}
         className="flex h-full flex-col"
       >
-        <div className="space-y-5">
+        <div className="space-y-4">
           <div>
-            <label className="mb-2 block text-[15px] font-normal text-white">Name</label>
+            <label className="mb-1.5 block text-[14px] font-normal text-white">Name</label>
             <input
               type="text"
               name="entry.1323039583"
               value={values.name}
               placeholder="Your Name"
               onChange={(event) => handleChange("name", event.target.value)}
-              className="h-12 w-full rounded-[6px] border border-[#474747] bg-[#2a2a2a] px-4 text-[16px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
+              className="h-10 w-full rounded-[4px] border border-[#474747] bg-[#2a2a2a] px-3 text-[15px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-[15px] font-normal text-white">Email</label>
+            <label className="mb-1.5 block text-[14px] font-normal text-white">Email</label>
             <input
               type="email"
               name="entry.140045828"
               value={values.email}
               placeholder="Your Email"
               onChange={(event) => handleChange("email", event.target.value)}
-              className="h-12 w-full rounded-[6px] border border-[#474747] bg-[#2a2a2a] px-4 text-[16px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
+              className="h-10 w-full rounded-[4px] border border-[#474747] bg-[#2a2a2a] px-3 text-[15px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-[15px] font-normal text-white">Message</label>
+            <label className="mb-1.5 block text-[14px] font-normal text-white">Message</label>
             <textarea
               rows={7}
               name="entry.165633033"
               value={values.message}
               placeholder="Your Message"
               onChange={(event) => handleChange("message", event.target.value)}
-              className="h-40 w-full resize-none rounded-[6px] border border-[#474747] bg-[#2a2a2a] px-4 py-3 text-[16px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
+              className="h-[118px] w-full resize-none rounded-[4px] border border-[#474747] bg-[#2a2a2a] px-3 py-2 text-[15px] font-normal text-white placeholder:text-[#707784] focus:border-[#5d5d5d] focus:outline-none"
             />
           </div>
         </div>
@@ -160,7 +201,7 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="mt-5 flex h-[54px] w-full items-center justify-center rounded-[14px] bg-[#e7e7e7] text-[16px] font-semibold text-black transition duration-300 hover:bg-white"
+          className="mt-4 flex h-10 w-full items-center justify-center rounded-[6px] bg-[#e7e7e7] text-[14px] font-semibold text-black transition duration-300 hover:bg-white"
         >
           Send Message
         </button>
@@ -192,7 +233,7 @@ function LocationCard({ location }) {
 }
  
 function ContactPage() {
-  const [activeFaqIndex, setActiveFaqIndex] = useState(0);
+  const [activeFaqIndex, setActiveFaqIndex] = useState(-1);
   const [query, setQuery] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -234,6 +275,12 @@ function ContactPage() {
  
   const contactEmail = navigation.footer.contact.email;
   const socialLinks = navigation.footer.social;
+  const contactSocialLinks = [...socialLinks].sort((first, second) => {
+    const firstIndex = contactSocialOrder.indexOf(first.label);
+    const secondIndex = contactSocialOrder.indexOf(second.label);
+
+    return (firstIndex === -1 ? 999 : firstIndex) - (secondIndex === -1 ? 999 : secondIndex);
+  });
   const revealClass =
     "translate-y-12 opacity-0 transition-all duration-700 ease-out will-change-transform";
  
@@ -256,8 +303,8 @@ function ContactPage() {
       >
         <div className="absolute inset-0 bg-black/25" />
 
-        <div className="relative z-10 mx-auto flex min-h-[340px] max-w-[1280px] flex-col items-center justify-center px-4 py-16 sm:min-h-[380px] lg:min-h-[400px]">
-          <div className="mt-12 flex flex-col items-center sm:mt-14 lg:mt-16">
+        <div className="relative z-10 mx-auto flex min-h-[300px] max-w-[1280px] flex-col items-center justify-center px-4 py-14 sm:min-h-[330px] lg:min-h-[350px]">
+          <div className="mt-10 flex flex-col items-center sm:mt-12 lg:mt-14">
             <h2
               data-reveal
               className={`${revealClass} mb-3 text-[24px] font-semibold text-white sm:text-[28px]`}
@@ -290,68 +337,72 @@ function ContactPage() {
         </div>
       </section>
  
-<section id="contact" className="bg-black px-4 py-6 sm:px-6 lg:px-8">
+<section id="contact" className="bg-black px-4 py-0 sm:px-6 lg:px-8">
   <div className="mx-auto max-w-[1600px]">
     <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
         <div
           data-reveal
-          className={`${revealClass} min-h-[450px] rounded-[16px] bg-[#171717] px-6 py-7 sm:px-6 sm:py-7`}
+          className={`${revealClass} min-h-[330px] rounded-[12px] bg-[#171717] px-6 py-7 sm:px-8 sm:py-8`}
         >
-          <h2 className="text-[42px] font-semibold leading-[1.08] text-white sm:text-[44px]">
+          <h2 className="text-[28px] font-semibold leading-tight text-white sm:text-[30px]">
             Get in Touch
           </h2>
  
-          <p className="mt-6 max-w-[650px] text-[17px] font-normal leading-[1.9] text-white/85">
+          <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.8] text-white/85">
             We&apos;d love to hear from you. Reach out for project inquiries, feedback, or
             general questions.
           </p>
  
-          <div className="mt-10 space-y-6">
+          <div className="mt-7 space-y-4">
             <ContactInfoCard
               text="123 Light Street, Glow City"
-              icon="📍"
+              icon={<FaMapMarkerAlt aria-hidden="true" />}
               iconColor="text-[#14b8d4]"
             />
  
             <ContactInfoCard
               text={contactEmail}
               href={`mailto:${contactEmail}`}
-              icon="✉"
+              icon={<FaEnvelope aria-hidden="true" />}
               iconColor="text-[#ff4d5a]"
             />
           </div>
  
-          <div className="mt-8 flex flex-wrap gap-2">
-            {socialLinks.map((social) =>
-              social.href ? (
+          <div className="mt-7 flex flex-wrap gap-2">
+            {contactSocialLinks.map((social) => {
+              const SocialIcon = socialIconMap[social.label];
+              const iconElement = SocialIcon ? (
+                <SocialIcon className="h-[16px] w-[16px] text-white" aria-hidden="true" />
+              ) : (
+                <img
+                  src={social.icon}
+                  alt=""
+                  className="h-[16px] w-[16px] object-contain brightness-0 invert"
+                  aria-hidden="true"
+                />
+              );
+
+              return social.href ? (
                 <a
                   key={social.label}
                   href={social.href}
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#2b2b2b] transition duration-300 hover:bg-[#363636]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2b2b2b] text-white transition duration-300 hover:scale-110 hover:bg-white hover:text-black [&_svg]:transition-colors hover:[&_svg]:text-black"
                   aria-label={social.label}
                 >
-                  <img
-                    src={social.icon}
-                    alt={social.label}
-                    className="h-[18px] w-[18px] object-contain"
-                  />
+                  {iconElement}
                 </a>
               ) : (
                 <span
                   key={social.label}
-                  className="flex h-12 w-12 cursor-not-allowed items-center justify-center rounded-full bg-[#2b2b2b] opacity-50"
+                  className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-full bg-[#2b2b2b] opacity-50"
                   aria-label={`${social.label} unavailable`}
                 >
-                  <img
-                    src={social.icon}
-                    alt={social.label}
-                    className="h-[18px] w-[18px] object-contain"
-                  />
+                  {iconElement}
                 </span>
-              ),
-            )}
+              );
+            })}
           </div>
         </div>
  
@@ -366,17 +417,17 @@ function ContactPage() {
   </div>
 </section>
  
-<section id="faq" className="bg-[#1c1c1c] px-4 py-10 sm:px-6 lg:px-8">
+<section id="faq" className="bg-[#303840] px-4 py-12 sm:px-6 lg:px-8">
   <div className="mx-auto max-w-[1280px]">
     <div data-reveal className={revealClass}>
-      <h2 className="mb-10 text-center text-[32px] font-semibold text-white">
+      <h2 className="mb-10 text-center text-[28px] font-semibold text-white">
         Frequently Asked Questions
       </h2>
     </div>
  
     <div
       data-reveal
-      className={`${revealClass} mx-auto max-w-[1100px] space-y-3`}
+      className={`${revealClass} mx-auto max-w-[900px] rounded-[10px] bg-[#181818] px-8 py-7 shadow-[0_0_10px_rgba(255,255,255,0.05)]`}
       style={{ transitionDelay: "120ms" }}
     >
       {faqs.map((item, index) => {
@@ -385,24 +436,24 @@ function ContactPage() {
         return (
             <div
               key={item.question}
-              className="rounded-[6px] border border-white/10 bg-[#181818]"
+              className="border-b border-white/10 last:border-b-0"
             >
               <button
                 type="button"
                 onClick={() => setActiveFaqIndex(isOpen ? -1 : index)}
-                className="flex w-full items-center justify-between px-5 py-5 text-left"
+                className="flex w-full items-center justify-between px-2 py-4 text-left"
               >
-                <span className="text-[17px] font-medium text-white">
+                <span className="text-[15px] font-medium text-white">
                   {item.question}
                 </span>
  
-                <span className="text-[22px] text-white">
-                  {isOpen ? "−" : "+"}
+                <span className="ml-4 flex h-6 w-6 shrink-0 items-center justify-center text-[16px] text-white">
+                  {isOpen ? <FaMinus aria-hidden="true" /> : <FaPlus aria-hidden="true" />}
                 </span>
               </button>
  
               {isOpen && (
-                <div className="border-t border-white/10 bg-[#222222] px-5 py-4 text-[15px] leading-7 text-white/75">
+                <div className="bg-[#2a2a2a] px-4 py-4 text-[14px] leading-7 text-white/75">
                   {item.answer}
                 </div>
               )}
@@ -414,11 +465,11 @@ function ContactPage() {
 </section>
  
  
-<section className="bg-black px-2 pt-8 sm:px-4 lg:px-6">
+<section className="bg-black px-4 py-8 sm:px-6 lg:px-8">
   <div className="mx-auto max-w-[1600px]">
     <div data-reveal className={revealClass}>
       <div className="text-center">
-        <h2 className="text-[26px] font-semibold text-white sm:text-[30px]">
+        <h2 className="text-[24px] font-semibold text-white sm:text-[26px]">
           Search Your Nearest Location
         </h2>
       </div>
@@ -426,7 +477,7 @@ function ContactPage() {
  
       <form
         data-reveal
-        className={`${revealClass} mx-auto mt-6 flex w-full max-w-[760px] flex-col gap-2 rounded-[12px] bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.2)] sm:flex-row sm:items-center`}
+        className={`${revealClass} mx-auto mt-5 flex w-full max-w-[700px] flex-col gap-3 rounded-[8px] bg-white p-3 shadow-[0_4px_15px_rgba(0,0,0,0.1)] sm:flex-row sm:items-center`}
         style={{ transitionDelay: "120ms" }}
         onSubmit={(event) => {
           event.preventDefault();
@@ -438,20 +489,20 @@ function ContactPage() {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search By City Or Country..."
-          className="h-[52px] flex-1 rounded-[8px] border border-[#d7d7d7] bg-[#f3f3f3] px-4 text-[15px] text-black placeholder:text-[#8a8a8a] focus:border-[#0d6efd] focus:outline-none"
+          className="h-12 flex-1 rounded-[6px] border border-[#d7d7d7] bg-white px-4 text-[14px] text-black placeholder:text-[#8a8a8a] focus:border-[#0d6efd] focus:outline-none"
         />
  
         <button
           type="submit"
-          className="h-[52px] rounded-[8px] bg-[#0d57d8] px-6 text-[15px] font-medium text-white transition hover:bg-[#0b4cc0] sm:min-w-[100px]"
+          className="h-12 rounded-[6px] bg-[#0d57d8] px-6 text-[14px] font-medium text-white transition hover:bg-[#0b4cc0] sm:min-w-[88px]"
         >
-          Search
+          search
         </button>
       </form>
  
       <div
         data-reveal
-        className={`${revealClass} mt-8 mb-1 overflow-hidden rounded-[14px]`}
+        className={`${revealClass} mt-8 overflow-hidden rounded-[12px]`}
         style={{ transitionDelay: "180ms" }}
       >
         <iframe
@@ -459,7 +510,7 @@ function ContactPage() {
           title="Mecanav map"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="h-[420px] w-full border-0"
+          className="h-[400px] w-full border-0"
         />
       </div>
  

@@ -26,7 +26,11 @@ function SiteLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(110);
   const isHomePage = location.pathname === "/";
-  const isProductsPage = location.pathname.startsWith("/products");
+  const isProductsPage =
+    location.pathname.startsWith("/products") || location.pathname.startsWith("/product/");
+  const isProductDetailPage =
+    location.pathname.startsWith("/product/") ||
+    /^\/products\/(?!category\/)[^/]+\/?$/.test(location.pathname);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -73,7 +77,7 @@ function SiteLayout() {
 
   return (
     <div
-      className={`legacy-site-shell min-h-screen bg-black text-white${isHomePage ? " is-home-page" : " is-inner-page"}${isProductsPage ? " is-products-page" : ""}`}
+      className={`legacy-site-shell min-h-screen bg-black text-white${isHomePage ? " is-home-page" : " is-inner-page"}${isProductsPage ? " is-products-page" : ""}${isProductDetailPage ? " is-product-detail-page" : ""}`}
       style={{ "--site-header-height": `${headerHeight}px` }}
     >
       <div id="thetop" />

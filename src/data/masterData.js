@@ -88,7 +88,7 @@ import recessedGroundPdf from "../assets/pdfs/RECESSED GROUND LIGHTS WEB.pdf";
 import pillarPdf from "../assets/pdfs/piller-highlighters-WEB.pdf";
 import floodPdf from "../assets/pdfs/FLOOD LIGHTS  web.pdf";
 import treePdf from "../assets/pdfs/_Tree Highlighters  web.pdf";
-import logo from "../assets/images/logo/mecanavulogo.webp";
+import logo from "../assets/images/logo/MECANAV.png";
 import facebookIcon from "../assets/icons/fb.webp";
 import instagramIcon from "../assets/icons/instagram.webp";
 import twitterIcon from "../assets/icons/twitter.webp";

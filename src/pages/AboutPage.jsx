@@ -10,7 +10,7 @@ import aboutSafety from "../assets/icons/about-safety.webp";
 import sustainability from "../assets/icons/sustainability.webp";
 import excellence from "../assets/icons/excellence.webp";
 import modelAsset from "../assets/media/wall washer and stand 2.glb";
-import heroBackground from "../assets/images/banners/contactbg.png";
+import heroBackground from "../assets/images/brands/bri.webp";
 import HomeLegacyPartnersSection from "../components/HomeLegacyPartnersSection";
 import PageMeta from "../components/PageMeta";
 
@@ -228,24 +228,25 @@ function AboutPage() {
  
       <section
         id="about-intro-section"
-        className="bg-black px-4 py-10 sm:px-6 lg:px-8 lg:py-12"
+        className="bg-black px-4 py-8 sm:px-6 lg:px-8 lg:py-10"
       >
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:gap-14">
+        <div className="mx-auto flex max-w-[1180px] flex-col items-center justify-center gap-8 lg:flex-row lg:items-center lg:gap-14">
           <div
             className={`w-full min-w-0 flex-1 transition-all duration-1000 ease-out ${aboutIntroVisible
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-16 opacity-0"
               }`}
           >
-            <div className="mx-auto w-full max-w-[560px]">
+            <div className="mx-auto w-full max-w-[590px]">
               <model-viewer
                 src={modelAsset}
                 alt="3D Spotlight"
                 auto-rotate=""
                 camera-controls=""
-                camera-orbit="18deg 100deg 2.5m"
+                camera-orbit="18deg 92deg 4.8m"
+                field-of-view="34deg"
                 background-color="#ffffff"
-                style={{ width: "100%", height: "500px", maxWidth: "100%" }}
+                style={{ width: "100%", height: "350px", maxWidth: "100%" }}
               />
             </div>
           </div>
@@ -254,21 +255,21 @@ function AboutPage() {
             className={`w-full min-w-0 flex-1 transition-all duration-1000 ease-out ${aboutIntroVisible
                 ? "translate-x-0 opacity-100"
                 : "translate-x-16 opacity-0"
-              }`}
+            }`}
           >
-            <div className="mx-auto max-w-[560px]">
-              <h2 className="text-[25px] font-normal leading-tight text-white sm:text-[31px] lg:text-[29px]">
+            <div className="w-full max-w-[690px] text-left">
+              <h2 className="whitespace-nowrap text-[30px] font-light leading-tight tracking-[0.04em] text-[#f2f2f2] sm:text-[38px] lg:text-[38px]">
                 Illuminate the Extraordinary
               </h2>
  
-              <p className="mt-5 text-[14px] font-normal leading-7 text-white sm:text-[15px]">
+              <p className="mt-6 max-w-[650px] text-[15px] font-light leading-[2.05] tracking-[0.12em] text-[#b7b7b7] sm:text-[16px] lg:text-[17px]">
                 At Mecanav, we do not just light up structures. We create unforgettable experiences.
                 From sleek Pixel LED Strips that trace every curve of a design to bold Neon Flex
                 LEDs that splash vibrant personality across any surface, our lighting turns spaces
                 into living, breathing art.
               </p>
  
-              <p className="mt-5 text-[14px] font-normal leading-7 text-white sm:text-[15px]">
+              <p className="mt-8 max-w-[650px] text-[15px] font-light leading-[2.05] tracking-[0.12em] text-[#b7b7b7] sm:text-[16px] lg:text-[17px]">
                 Every glow, every pulse, every shift in color is crafted to inspire awe and spark
                 emotion. Whether it is elevating a skyscraper, reimagining a storefront, or making a
                 landmark unforgettable, we deliver lighting that leaves a lasting impression.
@@ -280,24 +281,23 @@ function AboutPage() {
  
       <section
         id="lighting-journey-section"
-        className="bg-black px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
+        className="bg-[#111111] px-6 py-20 sm:px-10 lg:px-16 xl:px-24"
       >
         <div className="mx-auto max-w-[1180px]">
           <div
-            className={`transition-all duration-700 ease-out ${journeyVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
+            className={`transition-all duration-700 ease-out ${journeyVisible ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
               }`}
           >
-            <h2 className="text-center text-[24px] font-bold uppercase tracking-[0.02em] text-white sm:text-[32px]">
+            <h2 className="text-center text-[28px] font-bold uppercase leading-tight tracking-[0.02em] text-white sm:text-[34px] lg:text-[36px]">
               Our Lighting Journey
             </h2>
           </div>
  
-          <div className="relative mx-auto mt-8 max-w-[1080px] pl-[132px] sm:pl-[144px]">
-            <div className="absolute left-[0px] top-[18px] h-[calc(100%-36px)] w-[3px] bg-[#8b1fff] shadow-[0_0_14px_#8b1fff,0_0_30px_rgba(139,31,255,0.95)]" />
+          <div className="relative mx-auto mt-10 max-w-[1180px] pl-[112px]">
+            <div className="absolute left-[0px] top-[18px] z-0 h-[calc(100%-36px)] w-[3px] bg-[#8b1fff] shadow-[0_0_14px_#8b1fff,0_0_30px_rgba(139,31,255,0.95)]" />
+            <div className="absolute left-[50px] top-[18px] z-0 h-[calc(100%-36px)] w-[3px] bg-[#8b1fff] shadow-[0_0_14px_#8b1fff,0_0_30px_rgba(139,31,255,0.95)]" />
  
-            <div className="absolute left-[50px] top-[18px] h-[calc(100%-36px)] w-[3px] bg-[#8b1fff] shadow-[0_0_14px_#8b1fff,0_0_30px_rgba(139,31,255,0.95)]" />
- 
-            <div className="space-y-8">
+            <div className="space-y-9">
               {timelineItems.map((item, index) => {
                 const fromLeft = index % 2 === 0;
  
@@ -312,16 +312,16 @@ function AboutPage() {
                       }`}
                     style={{ transitionDelay: `${index * 140}ms` }}
                   >
-                    <div className="absolute left-[-102px] top-[16px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[#7a18ff] text-[11px] font-bold text-white shadow-[0_0_10px_#912aff,0_0_24px_rgba(145,42,255,0.95)] sm:left-[-116px] sm:h-[44px] sm:w-[44px] sm:text-[12px]">
+                    <div className="absolute left-[-86px] top-[13px] z-10 flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#7a18ff] text-[12px] font-bold text-white shadow-[0_0_12px_#912aff,0_0_30px_rgba(145,42,255,0.95)] sm:text-[13px]">
                       {item.year}
                     </div>
  
-                    <div className="rounded-[14px] border border-[#2e2550] bg-[#181936] px-6 py-6 shadow-[0_0_18px_rgba(130,0,255,0.28),0_0_42px_rgba(130,0,255,0.14)] transition-all duration-300 group-hover:translate-x-[6px] group-hover:shadow-[0_0_26px_rgba(151,27,255,0.5),0_0_56px_rgba(151,27,255,0.26)] sm:px-7 sm:py-7">
+                    <div className="relative z-10 rounded-[14px] border border-[#2e2550] bg-[#181936] px-7 py-5 shadow-[0_0_18px_rgba(130,0,255,0.28),0_0_42px_rgba(130,0,255,0.14)] transition-all duration-300 group-hover:translate-x-[6px] group-hover:shadow-[0_0_26px_rgba(151,27,255,0.48),0_0_56px_rgba(151,27,255,0.24)] sm:px-8 sm:py-6">
                       <h3 className="text-[20px] font-bold leading-tight text-white sm:text-[22px]">
                         {item.title}
                       </h3>
  
-                      <p className="mt-3 text-[13px] leading-7 text-white/80 sm:text-[14px]">
+                      <p className="mt-2 text-[13px] leading-7 text-white/80 sm:text-[14px]">
                         {item.text}
                       </p>
                     </div>

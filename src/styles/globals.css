@@ -49,12 +49,28 @@ main {
 }
 
 .legacy-site-shell.is-inner-page main {
-  padding-top: var(--site-header-height, 110px);
+  padding-top: 0;
   overflow: visible !important;
 }
 
 .legacy-site-shell.is-products-page main {
-  padding-top: max(var(--site-header-height, 145px), 145px);
+  padding-top: 0;
+}
+
+.legacy-home-page {
+  --home-section-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  .legacy-home-page {
+    --home-section-height: 100dvh;
+  }
+}
+
+@media (min-width: 992px) {
+  .legacy-site-shell.is-home-page main {
+    margin-top: calc(var(--site-header-height, 120px) * -1);
+  }
 }
 
 .sr-only {
@@ -74,11 +90,7 @@ main {
   max-width: max-content;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid currentColor;
-
-  animation:
-  cataloguesTyping 6s linear both,
-  cataloguesTypingCaret 1s step-end infinite;
+  border-right: 0;
 }
 
 @keyframes cataloguesTyping {
@@ -343,9 +355,11 @@ main {
   left: 0;
   right: 0;
   height: auto;
-  z-index: 999;
-  position: absolute;
+  z-index: 1000;
+  position: sticky;
   padding: 48.5px 0;
+  background: #070707;
+  border-bottom: 1px solid transparent;
   transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -354,7 +368,20 @@ main {
 }
 
 .header-section.solid-header {
-  background-color: #000;
+  background-color: #070707;
+}
+
+.legacy-site-shell.is-products-page .header-section {
+  border-bottom-color: #ddd;
+}
+
+.legacy-site-shell.is-product-detail-page .header-section {
+  border-bottom-color: transparent;
+}
+
+.legacy-site-shell.is-home-page .header-section.at-top:not(.stuck) {
+  background: transparent;
+  box-shadow: none;
 }
 
 .header-section .container {
@@ -369,9 +396,9 @@ main {
 }
 
 .header-section.stuck {
-  position: fixed;
+  position: sticky;
   padding: 23.5px 0;
-  background-color: #000;
+  background-color: #070707;
   box-shadow: 0 0 18px 1px rgba(255, 255, 255, 0.1);
   animation: fadeInDown 0.5s ease;
 }
@@ -942,8 +969,7 @@ main {
 
 .legacy-home-page .home-screen-fit-section {
   width: 100%;
-  min-height: calc(100vh - var(--home-navbar-height, 80px));
-  min-height: calc(100dvh - var(--home-navbar-height, 80px));
+  min-height: var(--home-section-height);
 }
 
 .legacy-home-page .video-bg {
@@ -1176,10 +1202,15 @@ main {
   padding-top: 0;
   padding-bottom: 0;
   width: 100%;
-  overflow: hidden;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
 }
 
 .legacy-home-page .application-section .container.my-2 {
+  display: flex;
+  flex-direction: column;
+  height: auto;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -1202,9 +1233,36 @@ main {
   padding-right: 6px;
 }
 
+.legacy-home-page .application-section .row {
+  flex: 0 0 auto;
+  height: calc(100vh - var(--home-navbar-height, 80px));
+  min-height: calc(100vh - var(--home-navbar-height, 80px));
+}
+
+@supports (height: 100dvh) {
+  .legacy-home-page .application-section .row {
+    height: calc(100dvh - var(--home-navbar-height, 80px));
+    min-height: calc(100dvh - var(--home-navbar-height, 80px));
+  }
+}
+
+.legacy-home-page .application-section .row {
+  min-height: 0;
+}
+
+.legacy-home-page .application-section .row > [class*="col-"] {
+  height: 100%;
+  min-height: 0;
+}
+
+.legacy-home-page .application-section .row > [class*="col-"] > a {
+  height: 100%;
+}
+
 .bg-card {
   position: relative;
-  height: clamp(250px, 40vw, 650px);
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
   margin: 0;
   color: #fff;
@@ -1261,8 +1319,7 @@ main {
 .animiyaa-video-section {
   position: relative;
   width: 100%;
-  height: calc(100vh - var(--home-navbar-height, 80px));
-  height: calc(100dvh - var(--home-navbar-height, 80px));
+  height: var(--home-section-height);
   min-height: 0;
   overflow: hidden;
   background: #000;
@@ -1291,8 +1348,7 @@ main {
 .lightoffandon-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - var(--home-navbar-height, 80px));
-  height: calc(100dvh - var(--home-navbar-height, 80px));
+  height: var(--home-section-height);
   min-height: 0;
   overflow: hidden;
   touch-action: none;
@@ -1381,9 +1437,10 @@ main {
 .legacy-controller-wrap {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
-  min-height: calc(100vh - var(--home-navbar-height, 80px));
-  min-height: calc(100dvh - var(--home-navbar-height, 80px));
+  height: var(--home-section-height);
+  min-height: 0;
   background: #111;
+  overflow: hidden;
 }
 
 .legacy-controller-wrap .sidebar {
@@ -1394,7 +1451,8 @@ main {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  justify-content: center;
+  justify-content: top;
+  
 }
 
 .legacy-controller-wrap .toggle-group {
@@ -1510,16 +1568,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - var(--home-navbar-height, 80px));
-  min-height: calc(100dvh - var(--home-navbar-height, 80px));
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
 }
 
 .legacy-controller-wrap .main-content #display {
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - var(--home-navbar-height, 80px));
-  min-height: calc(100dvh - var(--home-navbar-height, 80px));
+  min-height: 0;
   object-fit: cover;
 }
 
@@ -1897,6 +1954,14 @@ main {
   }
 }
 
+@media screen and (max-width: 1230px) and (min-width: 992px) {
+  .header-section,
+  .header-section.at-top,
+  .header-section.stuck {
+    padding: 23.5px 0;
+  }
+}
+
 @media (max-width: 991px) {
   .legacy-home-page .whoweareaboutus.section.professional-bg-container {
     height: auto;
@@ -1933,12 +1998,12 @@ main {
   }
 
   .legacy-home-page .application-section .bg-card {
-    height: 340px;
+    height: 100%;
     margin: 0;
   }
 
   .header-section {
-    padding: 18px 0 !important;
+    padding: 16px 0 !important;
     position: fixed;
     background: #000;
   }
@@ -1972,11 +2037,11 @@ main {
   }
 
   .legacy-site-shell.is-inner-page main {
-    padding-top: var(--site-header-height, 84px);
+    padding-top: 0;
   }
 
   .legacy-site-shell.is-products-page main {
-    padding-top: max(var(--site-header-height, 84px), 84px);
+    padding-top: 0;
   }
 
   .legacy-controller-wrap {
@@ -2032,6 +2097,36 @@ main {
   }
 
   .bg-card { height: 220px; }
+  .legacy-home-page .application-section .container.my-2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .legacy-home-page .application-section .row {
+    display: flex;
+    height: auto;
+    min-height: 0;
+  }
+
+  .legacy-home-page .application-section .row > [class*="col-"] {
+    height: calc(100vh - var(--home-navbar-height, 80px));
+    min-height: 0;
+  }
+
+  @supports (height: 100dvh) {
+    .legacy-home-page .application-section .row > [class*="col-"] {
+      height: calc(100dvh - var(--home-navbar-height, 80px));
+    }
+  }
+
+  .legacy-home-page .application-section .row > [class*="col-"] > a,
+  .legacy-home-page .application-section .bg-card {
+    height: 100%;
+  }
+
+  .legacy-home-page .application-section .bg-card .content {
+    padding: 18px;
+  }
 
   .bg-card .content {
     padding: 30px;
@@ -2056,7 +2151,9 @@ main {
 
   .legacy-controller-wrap {
     grid-template-columns: 1fr;
-    min-height: auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: var(--home-section-height);
+    min-height: 0;
   }
 
   .legacy-controller-wrap .sidebar {
@@ -2152,7 +2249,7 @@ main {
   .legacy-controller-wrap .main-content,
   .legacy-controller-wrap .main-content #display {
     min-height: 0;
-    height: clamp(260px, 52vh, 520px);
+    height: 100%;
   }
 
   .partners-section .item .partner-logo,
@@ -2183,7 +2280,9 @@ main {
 @media (max-width: 420px) {
   .legacy-controller-wrap {
     grid-template-columns: 1fr;
-    min-height: auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: var(--home-section-height);
+    min-height: 0;
   }
 
   .legacy-controller-wrap .toggle-label {
@@ -2192,7 +2291,7 @@ main {
 
   .legacy-controller-wrap .main-content,
   .legacy-controller-wrap .main-content #display {
-    height: clamp(240px, 46vh, 420px);
+    height: 100%;
   }
 
   .animiyaa-video-section {

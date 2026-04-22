@@ -5,6 +5,24 @@ import { catalogues } from "../data/masterData";
 import CatalogueFormGate from "../components/CatalogueFormGate";
 import PageMeta from "../components/PageMeta";
 
+const legacyCatalogueOrder = [
+  "catalogues1-1",
+  "catalogues1-2",
+  "catalogues1-3",
+  "catalogues1-4",
+  "catalogues1-5",
+  "catalogues1-14",
+  "catalogues1-15",
+  "catalogues1-6",
+  "catalogues1-9",
+  "catalogues1-8",
+  "catalogues1-12",
+  "catalogues1-10",
+  "catalogues1-11",
+  "catalogues1-7",
+  "catalogues1-13",
+];
+
 function triggerFileDownload(fileUrl) {
   if (!fileUrl) {
     return false;
@@ -22,14 +40,14 @@ function triggerFileDownload(fileUrl) {
 
 function CatalogueCard({ title, image, to, onDownload }) {
   return (
-    <article className="group relative overflow-hidden bg-[#d7d1cb] shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#d7d1cb]">
+    <article className="group relative overflow-hidden bg-[#d7d4d4] transition duration-300 hover:-translate-y-1">
+      <div className="relative w-full overflow-hidden bg-[#d7d4d4]">
         <img
           src={image}
           alt={title}
           loading="lazy"
           decoding="async"
-          className="block h-full w-full object-contain transition duration-300 group-hover:scale-[1.02]"
+          className="block h-auto w-full object-cover transition duration-300 group-hover:scale-[1.05]"
         />
       </div>
 
@@ -37,7 +55,7 @@ function CatalogueCard({ title, image, to, onDownload }) {
         <Link
           to={to}
           aria-label={`Preview ${title}`}
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-[17px] text-white transition hover:bg-black"
+          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-[16px] text-white transition hover:bg-black"
         >
           <FaEye aria-hidden="true" />
         </Link>
@@ -45,7 +63,7 @@ function CatalogueCard({ title, image, to, onDownload }) {
         <button
           type="button"
           aria-label={`Download ${title}`}
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-[17px] text-white transition hover:bg-black"
+          className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-[16px] text-white transition hover:bg-black"
           onClick={onDownload}
         >
           <FaDownload aria-hidden="true" />
@@ -57,6 +75,16 @@ function CatalogueCard({ title, image, to, onDownload }) {
 
 function CataloguesPage() {
   const [selectedCatalogue, setSelectedCatalogue] = useState(null);
+  const orderedCatalogues = useMemo(() => {
+    const orderBySlug = new Map(legacyCatalogueOrder.map((slug, index) => [slug, index]));
+
+    return [...catalogues].sort((first, second) => {
+      const firstIndex = orderBySlug.get(first.slug) ?? 999;
+      const secondIndex = orderBySlug.get(second.slug) ?? 999;
+
+      return firstIndex - secondIndex;
+    });
+  }, []);
 
   const unavailableMessage = useMemo(() => {
     if (!selectedCatalogue || selectedCatalogue.pdfFile) {
@@ -78,22 +106,22 @@ function CataloguesPage() {
   };
 
   return (
-    <section className="bg-[#d7d4d4] px-4 py-12 text-black sm:px-6 lg:px-8">
+    <section className="bg-black px-4 pb-10 pt-0 text-black sm:px-6 lg:px-8">
       <PageMeta
         title="Catalogues"
         description="Preview and download Mecanav product catalogues."
       />
-      <div className="mx-auto max-w-[1400px]">
-        <div className="px-2 py-5 text-center">
-          <h1 className="font-['Poppins',sans-serif] font-bold tracking-[0.08em] text-[#010101] sm:text-3xl">
+      <div className="mx-auto max-w-[1400px] bg-[#d7d4d4] p-5">
+        <div className="px-2 pb-8 pt-3 text-center">
+          <h1 className="font-['Poppins',sans-serif] text-[24px] font-bold tracking-[0.08em] text-[#010101] sm:text-[28px]">
             <span className="catalogues-typing-heading" style={{ "--typing-characters": 14 }}>
               OUR CATALOGUES
             </span>
           </h1>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-          {catalogues.map((catalogue) => (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {orderedCatalogues.map((catalogue) => (
             <CatalogueCard
               key={catalogue.slug}
               title={catalogue.title}

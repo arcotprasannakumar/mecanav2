@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import HomeLegacyPartnersSection from "../components/HomeLegacyPartnersSection";
 import PageMeta from "../components/PageMeta";
 import StatusPanel from "../components/StatusPanel";
 import {
@@ -19,17 +18,24 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
   };
 
   return (
-    <aside className="w-full border-b border-black/10 bg-[#030303] p-4 lg:min-h-full lg:w-[290px] lg:flex-none lg:border-b-0 lg:border-r lg:border-r-black/10 lg:p-6">
-      <button
-        type="button"
-        className="flex w-full items-center justify-center rounded-md bg-black px-4 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white lg:hidden"
-        onClick={() => setIsMobileOpen((current) => !current)}
-      >
-        Categories
-        <span className={`ml-3 transition ${isMobileOpen ? "rotate-180" : ""}`}>▼</span>
-      </button>
+    <aside className="w-full bg-[#030303] lg:w-[280px] lg:shrink-0 lg:border-r lg:border-[#ccc]">
+      <div className="bg-[#030303] px-4 pt-4 lg:hidden">
+        <button
+          type="button"
+          className="flex w-full items-center justify-between rounded-[3px] border border-[#141414] bg-black px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.04em] text-white"
+          onClick={() => setIsMobileOpen((current) => !current)}
+        >
+          <span>Categories</span>
+          <span className="text-base leading-none">{isMobileOpen ? "▴" : "▾"}</span>
+        </button>
+      </div>
 
-      <div className={`${isMobileOpen ? "mt-4 flex" : "hidden"} flex-col gap-3 lg:mt-0 lg:flex`}>
+      <div
+        className={`bg-[#030303] px-5 pb-5 pt-4 transition-all duration-200 lg:block lg:h-full lg:px-4 lg:py-6 ${
+          isMobileOpen ? "block" : "hidden"
+        }`}
+      >
+        <div className="space-y-[14px] bg-[#030303]">
         {categories.map((category) => {
           const isOpen = openCategory === category.slug;
           const items = category.sidebarItems ?? [];
@@ -39,25 +45,26 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
             <div key={category.slug}>
               <button
                 type="button"
-                className={`flex w-full items-center justify-between rounded-md px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.14em] text-white transition sm:text-sm ${
-                  activeCategorySlug === category.slug ? "bg-white/10" : "bg-black hover:scale-[1.02]"
+                aria-expanded={isOpen}
+                className={`flex min-h-[52px] w-full items-center justify-between rounded-[3px] border border-[#050505] bg-black px-4 py-2.5 text-left font-['Poppins',sans-serif] text-[13px] font-semibold uppercase leading-5 tracking-[0.02em] text-white transition-colors hover:bg-[#080808] ${
+                  activeCategorySlug === category.slug ? "ring-1 ring-white/25" : ""
                 }`}
                 onClick={() => toggleCategory(category.slug)}
               >
                 <span>{category.title}</span>
-                <span className={`transition ${isOpen ? "rotate-90" : ""}`}>▶</span>
+                <span className="text-[15px] leading-none text-white">{isOpen ? "▼" : "▶"}</span>
               </button>
 
               <div
-                className={`overflow-hidden rounded-b-md border-l-4 border-l-white bg-[#2e2e2e] transition-all duration-300 ${
-                  isOpen ? "mt-0 max-h-[900px] px-4 py-3 opacity-100" : "max-h-0 px-4 py-0 opacity-0"
+                className={`overflow-hidden border-l-[3px] border-white bg-[#2d2d2d] transition-all duration-300 ${
+                  isOpen ? "max-h-[900px] px-4 pb-2.5 pt-2.5 opacity-100" : "max-h-0 px-4 py-0 opacity-0"
                 }`}
               >
                 <Link
                   to={`/products/category/${category.slug}`}
-                  className="flex items-center gap-2 py-2 text-[11px] font-light tracking-[0.03em] text-white transition hover:translate-x-1 hover:text-[#00ffe5]"
+                  className="flex items-start gap-2.5 py-[7px] font-['Poppins',sans-serif] text-[13px] font-light leading-[1.5] text-white transition-colors hover:text-cyan-300"
                 >
-                  <span className="text-[10px]">▶</span>
+                  <span className="mt-[3px] text-[13px] leading-none text-white">▶</span>
                   Browse category
                   {count ? <span className="text-white/45">({count})</span> : null}
                 </Link>
@@ -65,9 +72,9 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
                   <Link
                     key={item.slug}
                     to={item.to}
-                    className="flex items-center gap-2 py-2 text-[11px] font-light tracking-[0.03em] text-white transition hover:translate-x-1 hover:text-[#00ffe5]"
+                    className="flex items-start gap-2.5 py-[7px] font-['Poppins',sans-serif] text-[13px] font-light leading-[1.5] text-white transition-colors hover:text-cyan-300"
                   >
-                    <span className="text-[10px]">▶</span>
+                    <span className="mt-[3px] text-[13px] leading-none text-white">▶</span>
                     {item.label}
                   </Link>
                 ))}
@@ -75,6 +82,7 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
             </div>
           );
         })}
+        </div>
       </div>
     </aside>
   );
@@ -83,23 +91,26 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
 function ProductCard({ title, image, to, className = "", captionClassName = "" }) {
   return (
     <article
-      className={`group overflow-hidden rounded-[4px] border-2 border-[#dedede] bg-white ${className}`}
+      className={`group min-w-0 overflow-hidden rounded-none bg-[#eeeeee] text-left max-lg:mx-auto max-lg:w-full max-lg:max-w-[430px] ${className}`}
     >
-      <Link to={to} className="block h-full">
-        <div className="h-[245px] overflow-hidden bg-[#f2f2f2] sm:h-[265px] xl:h-[280px]">
+      <Link to={to} className="flex h-full min-w-0 flex-col">
+        <div className="flex aspect-[1.28/1] min-h-0 items-center justify-center overflow-hidden bg-[#eeeeee]">
           <img
             src={image}
             alt={title}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-contain p-5 transition duration-500 group-hover:scale-105 sm:p-6"
+            className="h-full w-full object-contain p-1.5 transition-transform duration-500 group-hover:scale-105 sm:p-2"
           />
         </div>
-        <h2
-          className={`px-4 py-3 font-['Poppins',sans-serif] text-[15px] font-light leading-6 text-[#111] ${captionClassName}`}
-        >
-          {title}
-        </h2>
+        <div className="min-w-0 bg-transparent px-3 pb-3 pt-2 sm:px-4 sm:pb-4">
+          <h2
+            className={`truncate font-['Poppins',sans-serif] text-[13px] font-light leading-5 text-[#111] sm:text-[14px] ${captionClassName}`}
+            title={title}
+          >
+            {title}
+          </h2>
+        </div>
       </Link>
     </article>
   );
@@ -137,39 +148,39 @@ function ProductCategoryPage() {
   }
 
   return (
-    <section className="bg-[#fffafa] text-black">
+    <section className="overflow-hidden border-t border-white bg-[#fffafa] text-black">
       <PageMeta title={category.title} description={category.description} />
 
-      <div className="mx-auto flex min-h-[calc(100vh-140px)] w-full max-w-[1600px] flex-col lg:flex-row">
-        <ProductSidebar
-          categories={productCategories}
-          activeCategorySlug={category.slug}
-          productCounts={productCounts}
-        />
+      <div className="mx-auto w-full max-w-[1600px]">
+        <div className="flex flex-col lg:flex-row">
+          <ProductSidebar
+            categories={productCategories}
+            activeCategorySlug={category.slug}
+            productCounts={productCounts}
+          />
 
-        <div className="flex-1 bg-[#fffafa] p-4 sm:p-6 lg:p-8">
-          {displayProducts.length ? (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-              {displayProducts.map((product) => (
-                <ProductCard
-                  key={product.slug}
-                  title={product.title}
-                  image={product.image}
-                  to={product.to}
-                />
-              ))}
-            </div>
-          ) : (
-            <StatusPanel
-              tone="light"
-              message="Product details for this category are being prepared. Please contact the Mecanav team for the latest specification support."
-              className="mt-8 shadow-none"
-            />
-          )}
+          <main className="min-w-0 flex-1 bg-[#fffafa] px-5 pb-6 sm:px-6 md:px-8 lg:px-10">
+            {displayProducts.length ? (
+              <div className="mx-auto mt-10 grid w-full max-w-[1500px] grid-cols-1 gap-x-5 gap-y-8 sm:mt-11 lg:mt-11 lg:grid-cols-2 xl:grid-cols-4">
+                {displayProducts.map((product) => (
+                  <ProductCard
+                    key={product.slug}
+                    title={product.title}
+                    image={product.image}
+                    to={product.to}
+                  />
+                ))}
+              </div>
+            ) : (
+              <StatusPanel
+                tone="light"
+                message="Product details for this category are being prepared. Please contact the Mecanav team for the latest specification support."
+                className="mt-8 shadow-none"
+              />
+            )}
+          </main>
         </div>
       </div>
-
-      {/* <HomeLegacyPartnersSection /> */}
     </section>
   );
 }

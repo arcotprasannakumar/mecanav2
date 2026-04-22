@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HomeLegacyPartnersSection from "../components/HomeLegacyPartnersSection";
 import { productCategories } from "../data/masterData";
 import PageMeta from "../components/PageMeta";
 
@@ -32,21 +31,22 @@ function SidebarCategories({ openCategory, setOpenCategory, mobileOpen, setMobil
   };
 
   return (
-    <aside className="w-full lg:w-[280px] lg:shrink-0 lg:border-r lg:border-white/10">
-      <div className="px-4 pt-4 lg:hidden">
+    <aside className="w-full bg-[#030303] lg:w-[280px] lg:shrink-0 lg:border-r lg:border-[#ccc]">
+      <div className="bg-[#030303] px-4 pt-4 lg:hidden">
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="w-full rounded-md bg-black px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.14em] text-white"
+          className="flex w-full items-center justify-between rounded-[3px] border border-[#141414] bg-black px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.04em] text-white"
         >
-          Categories {mobileOpen ? "▴" : "▾"}
+          <span>Categories</span>
+          <span className="text-base leading-none">{mobileOpen ? "▴" : "▾"}</span>
         </button>
       </div>
 
       <div
-        className={`bg-black px-4 py-4 transition-all duration-200 lg:block lg:h-full ${mobileOpen ? "block" : "hidden"}`}
+        className={`bg-[#030303] px-5 pb-5 pt-4 transition-all duration-200 lg:block lg:h-full lg:px-4 lg:py-6 ${mobileOpen ? "block" : "hidden"}`}
       >
-        <div className="space-y-2">
+        <div className="space-y-[14px] bg-[#030303]">
           {sidebarCategories.map((category) => {
             const isOpen = openCategory === category.key;
             return (
@@ -54,22 +54,24 @@ function SidebarCategories({ openCategory, setOpenCategory, mobileOpen, setMobil
                 <button
                   type="button"
                   onClick={() => setOpenCategory((prev) => (prev === category.key ? null : category.key))}
-                  className="flex w-full items-center justify-between rounded-md bg-black px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.06em] text-white transition-transform duration-200 hover:scale-[1.02]"
+                  aria-expanded={isOpen}
+                  className="flex min-h-[52px] w-full items-center justify-between rounded-[3px] border border-[#050505] bg-black px-4 py-2.5 text-left font-['Poppins',sans-serif] text-[13px] font-semibold uppercase leading-5 tracking-[0.02em] text-white transition-colors hover:bg-[#080808]"
                 >
                   <span>{category.label}</span>
-                  <span className={`text-xs transition-transform ${isOpen ? "rotate-90" : ""}`}>▶</span>
+                  <span className="text-[15px] leading-none text-white">{isOpen ? "▼" : "▶"}</span>
                 </button>
 
                 {isOpen ? (
-                  <div className="ml-2 mt-2 rounded-md border-l-2 border-white/65 bg-[#2e2e2e] py-2 pl-4 pr-2">
+                  <div className="mt-0 border-l-[3px] border-white bg-[#2d2d2d] px-4 pb-2.5 pt-2.5">
                     {category.links.map((link) => (
                       <button
                         key={link.label}
                         type="button"
                         onClick={() => handleLinkClick(link)}
-                        className="block w-full py-1.5 text-left text-xs font-light text-white/90 transition-colors hover:text-cyan-300"
+                        className="flex w-full items-start gap-2.5 py-[7px] text-left font-['Poppins',sans-serif] text-[13px] font-light leading-[1.5] text-white transition-colors hover:text-cyan-300"
                       >
-                        {link.label}
+                        <span className="mt-[3px] text-[13px] leading-none text-white">▶</span>
+                        <span>{link.label}</span>
                       </button>
                     ))}
                   </div>
@@ -96,23 +98,23 @@ function ProductsGrid() {
   );
 
   return (
-    <div className="flex-1 bg-[#f5f5f5] p-4 md:p-6 lg:p-8">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="flex-1 bg-[#fffafa] p-4 md:p-6 lg:p-8">
+      <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2 xl:grid-cols-4">
         {productCards.map((product) => (
           <button
             key={product.slug}
             type="button"
             onClick={() => navigate(`/products/category/${product.slug}`)}
-            className="group overflow-hidden rounded-[4px] border-2 border-[#dedede] bg-white text-left"
+            className="group overflow-hidden rounded-[8px] border border-[#d1d1d1] bg-[#fffafa] text-left transition-colors hover:border-[#bcbcbc]"
           >
-            <div className="h-[245px] overflow-hidden bg-[#f2f2f2] sm:h-[265px] xl:h-[280px]">
+            <div className="h-[200px] overflow-hidden bg-[#eeeeee] sm:h-[230px] xl:h-[260px]">
               <img
                 src={product.image}
                 alt={product.title}
-                className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105 sm:p-10"
               />
             </div>
-            <h2 className="px-4 py-3 text-[15px] font-light leading-6 text-[#111]">
+            <h2 className="min-h-[56px] px-4 py-3 font-['Poppins',sans-serif] text-[18px] font-light leading-8 text-[#111]">
               {product.title}
             </h2>
           </button>
@@ -123,11 +125,11 @@ function ProductsGrid() {
 }
 
 function ProductsPage() {
-  const [openCategory, setOpenCategory] = useState("pixel-led-strip");
+  const [openCategory, setOpenCategory] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <section className="bg-[#f5f5f5] text-black">
+    <section className="border-t border-white bg-[#fffafa] text-black">
       <PageMeta
         title="Products"
         description="Explore Mecanav product categories and listings."
@@ -143,7 +145,6 @@ function ProductsPage() {
           <ProductsGrid />
         </div>
       </div>
-      {/* <HomeLegacyPartnersSection /> */}
     </section>
   );
 }
