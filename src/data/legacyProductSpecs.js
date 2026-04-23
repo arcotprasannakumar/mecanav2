@@ -275,8 +275,16 @@ const legacyProductSpecs = {
       "value": "100 – 277V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V/36V/48V"
+    },
+    {
       "feature": "Output wattage",
       "value": "100W/150W 200W/300W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     }
   ],
   "drivers-4_specifi": [
@@ -285,8 +293,16 @@ const legacyProductSpecs = {
       "value": "100 – 130V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V"
+    },
+    {
       "feature": "Output wattage",
       "value": "80W/120W/150W 200W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     }
   ],
   "drivers-5_specifi": [
@@ -295,28 +311,32 @@ const legacyProductSpecs = {
       "value": "100 – 265V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V"
+    },
+    {
       "feature": "Output Wattage",
       "value": "60W/80W/100W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     },
     {
       "feature": "Frequency",
       "value": "50Hz/60Hz"
     },
     {
-      "feature": "Efficiency",
-      "value": ">88%"
+      "feature": "Power Factor",
+      "value": ">0.9"
     },
     {
       "feature": "Efficiency",
       "value": ">88%"
     },
     {
-      "feature": "Efficiency",
-      "value": ">88%"
-    },
-    {
-      "feature": "Efficiency",
-      "value": ">88%"
+      "feature": "Protection",
+      "value": "Overload, Short Circuit"
     }
   ],
   "drivers-6_specifi": [
@@ -325,8 +345,16 @@ const legacyProductSpecs = {
       "value": "100 – 305V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V/36V/48V"
+    },
+    {
       "feature": "Output wattage",
       "value": "40W/60W/80W/100W120W/150W/185W 240W320W/480W 600W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP67"
     }
   ],
   "drivers-7_specifi": [
@@ -335,8 +363,16 @@ const legacyProductSpecs = {
       "value": "100 – 277V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V"
+    },
+    {
       "feature": "Output wattage",
       "value": "30W/60W/100W 120W/150W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     }
   ],
   "drivers-8_specifi": [
@@ -345,8 +381,16 @@ const legacyProductSpecs = {
       "value": "100 – 277V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V/36V/48V"
+    },
+    {
       "feature": "Output wattage",
       "value": "100W/120W/150W 200W/300W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     }
   ],
   "drivers-9_specifi": [
@@ -355,18 +399,22 @@ const legacyProductSpecs = {
       "value": "100 – 277V AC"
     },
     {
+      "feature": "Output Voltage",
+      "value": "12V/24V/36V/48V"
+    },
+    {
       "feature": "Output wattage",
       "value": "100W/120W/150W 200W/300W"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
     }
   ],
   "fan-projection-1": [
     {
       "feature": "Model",
       "value": "3D Hologram Fan Display – 56CM"
-    },
-    {
-      "feature": "Wattage",
-      "value": "4W/8W/12W/20W/40W/50W/60W"
     },
     {
       "feature": "Input Voltage",
@@ -471,10 +519,6 @@ const legacyProductSpecs = {
       "value": "3D Hologram Fan Display – 56CM"
     },
     {
-      "feature": "Wattage",
-      "value": "4W/8W/12W/20W/40W/50W/60W"
-    },
-    {
       "feature": "Input Voltage",
       "value": "220V AC (Customized)"
     },
@@ -577,32 +621,108 @@ const legacyProductSpecs = {
       "value": "Projects a single fixed image/pattern"
     },
     {
+      "feature": "Function",
+      "value": "Static Gobo Projection"
+    },
+    {
       "feature": "Light Source",
       "value": "LED (10W–50W, WW / RGB options)"
+    },
+    {
+      "feature": "Control",
+      "value": "DMX512"
     },
     {
       "feature": "GOBO Holders",
       "value": "4"
     },
     {
+      "feature": "Beam Angle",
+      "value": "9°–46°"
+    },
+    {
       "feature": "Input Voltage",
       "value": "DC24V / AC100–240V, 50/60Hz"
+    },
+    {
+      "feature": "Housing",
+      "value": "Aluminum Die Casted"
     },
     {
       "feature": "Ambient Temp",
       "value": "20°C to +45°C"
     },
     {
+      "feature": "Body Colour",
+      "value": "White / Grey"
+    },
+    {
       "feature": "Protection Rating",
       "value": "IP20 (Indoor) / IP65 (Outdoor variant)"
+    },
+    {
+      "feature": "Focus",
+      "value": "Zoom In / Zoom Out"
     },
     {
       "feature": "Effect",
       "value": "Overlap / Active Flow / Waving Effect"
     },
     {
+      "feature": "Remote",
+      "value": "Focusing / Static"
+    },
+    {
       "feature": "Gobo",
       "value": "Full Colour Lens"
+    },
+    {
+      "feature": "Projection Distance",
+      "value": "3–15 meters"
+    },
+    {
+      "feature": "Input Voltage",
+      "value": "220V AC (Customized)"
+    },
+    {
+      "feature": "CRI",
+      "value": "≥90"
+    },
+    {
+      "feature": "Led Make",
+      "value": "CREE / BLX / LUMI / OSRAM"
+    },
+    {
+      "feature": "LED Source",
+      "value": "5050"
+    },
+    {
+      "feature": "Operating Temperature",
+      "value": "45°-50°C"
+    },
+    {
+      "feature": "Burning Hours",
+      "value": "40,000 + hours"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP20 (Indoor) / IP65 (Outdoor variant)"
+    },
+    {
+      "feature": "Driver",
+      "value": "FULLHAM/PHILIPS/BAG"
+    },
+    {
+      "feature": "Protocol",
+      "value": "DMX , SPI , ArtNET"
+    },
+    {
+      "feature": "Warranty",
+      "value": "5 Years"
+    },
+    {
+      "feature": "Body Material",
+      "value": "Aluminium"
     }
   ],
   "gobo-lights-2": [
@@ -869,32 +989,64 @@ const legacyProductSpecs = {
       "value": "MECRW2312P-24V"
     },
     {
+      "feature": "Power Consumption",
+      "value": "14.5W/MTR"
+    },
+    {
       "feature": "Cutting Intervals",
       "value": "100 MM"
+    },
+    {
+      "feature": "Voltage",
+      "value": "24V"
     },
     {
       "feature": "Wattage/Meter",
       "value": "15/MTR"
     },
     {
+      "feature": "Current A/M",
+      "value": "0.60-0.62A/MTR"
+    },
+    {
       "feature": "Lumens",
       "value": "479"
+    },
+    {
+      "feature": "Operating Temperature",
+      "value": "50°-60°"
     },
     {
       "feature": "Colour Temperature",
       "value": "RGBW (2000K–6500K)"
     },
     {
+      "feature": "Max Length",
+      "value": "10-12 MTRS"
+    },
+    {
       "feature": "Protocol",
       "value": "DMX, SPI, ArtNET"
+    },
+    {
+      "feature": "LED Source",
+      "value": "5050"
     },
     {
       "feature": "LED Lifetime",
       "value": "50,000"
     },
     {
+      "feature": "IP Rating",
+      "value": "IP65, IP66"
+    },
+    {
       "feature": "Strip Size",
       "value": "10MM"
+    },
+    {
+      "feature": "Pixel Features",
+      "value": "10MTR values"
     }
   ],
   "rgb-12v-non-pixel-led-strip": [
@@ -1481,10 +1633,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -1845,10 +1993,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "15°, 30°, 45°"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -2213,10 +2357,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -2579,10 +2719,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -2721,10 +2857,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -3219,10 +3351,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -3295,10 +3423,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -3793,10 +3917,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -3869,10 +3989,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -4199,10 +4315,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -4275,10 +4387,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -4603,10 +4711,6 @@ const legacyProductSpecs = {
     {
       "feature": "Cutting Intervals",
       "value": "100MM"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -5241,10 +5345,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -5605,10 +5705,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "15°, 30°, 45°"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -5973,10 +6069,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -6339,10 +6431,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -6575,10 +6663,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -7073,10 +7157,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -7149,10 +7229,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -7553,10 +7629,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -7629,10 +7701,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -7881,10 +7949,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -8035,10 +8099,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -8285,10 +8345,6 @@ const legacyProductSpecs = {
     {
       "feature": "Cutting Intervals",
       "value": "100MM"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -9001,10 +9057,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -9365,10 +9417,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "15°, 30°, 45°"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -9733,10 +9781,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -10099,10 +10143,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -10223,40 +10263,80 @@ const legacyProductSpecs = {
       "value": "MECRWW1412NP-24V"
     },
     {
+      "feature": "Voltage",
+      "value": "24V"
+    },
+    {
       "feature": "Cutting Intervals",
       "value": "100MM"
+    },
+    {
+      "feature": "Wattage/Meter",
+      "value": "14.4W/MTR"
     },
     {
       "feature": "Lumens",
       "value": "479"
     },
     {
+      "feature": "Current A/M",
+      "value": "0.60-0.625A/MTR"
+    },
+    {
       "feature": "Beam Angle",
       "value": "120°"
+    },
+    {
+      "feature": "Operating Temperature",
+      "value": "45°–50°"
     },
     {
       "feature": "Bend Radius",
       "value": "150MM"
     },
     {
+      "feature": "Available Bending",
+      "value": "Horizontal, Vertical"
+    },
+    {
       "feature": "Max Length",
       "value": "10–12 MTRS"
+    },
+    {
+      "feature": "Colour Temperature",
+      "value": "RGBWW"
     },
     {
       "feature": "Burning Hours",
       "value": "40,000+ HOURS"
     },
     {
+      "feature": "Available Protocol",
+      "value": "Standard"
+    },
+    {
       "feature": "LED Make",
       "value": "CREE / BLX / LUMI / SRAM"
+    },
+    {
+      "feature": "LED Source",
+      "value": "5050"
     },
     {
       "feature": "IK Rating",
       "value": "IK08"
     },
     {
+      "feature": "IP Rating",
+      "value": "IP65, IP66"
+    },
+    {
       "feature": "Connector Type",
       "value": "IP68"
+    },
+    {
+      "feature": "Body Material",
+      "value": "Silicon Flex"
     },
     {
       "feature": "Size",
@@ -10381,10 +10461,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -10727,10 +10803,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -10881,10 +10953,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -11207,10 +11275,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -11361,10 +11425,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -11613,10 +11673,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -11767,10 +11823,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -12019,10 +12071,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -12241,24 +12289,104 @@ const legacyProductSpecs = {
       "value": "Black"
     },
     {
+      "feature": "Shape",
+      "value": "Rectangle"
+    },
+    {
       "feature": "Material",
       "value": "Metal"
+    },
+    {
+      "feature": "Finish Type",
+      "value": "Selected high-end eco-friendly paint"
     },
     {
       "feature": "Light Source",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
     {
+      "feature": "Shade Material",
+      "value": "Acrylonitrile Butadiene Styrene"
+    },
+    {
       "feature": "Brightness",
       "value": "9999 Lumen"
+    },
+    {
+      "feature": "Style",
+      "value": "Cool Light Tree Lamp"
     },
     {
       "feature": "Number of Light Sources",
       "value": "32"
     },
     {
+      "feature": "Mounting Type",
+      "value": "Easy manual installation"
+    },
+    {
       "feature": "Product Dimensions",
       "value": "14\"L x 5\"W x 28\"H"
+    },
+    {
+      "feature": "Special Features",
+      "value": "Waterproof"
+    },
+    {
+      "feature": "Input Voltage",
+      "value": "220V AC (Customized)"
+    },
+    {
+      "feature": "CCT",
+      "value": "WW/RGB/RGBW/RGBWW"
+    },
+    {
+      "feature": "CRI",
+      "value": "≥90"
+    },
+    {
+      "feature": "Beam Angle",
+      "value": "8°, 15°, 25°, 30°, 45°, 60°"
+    },
+    {
+      "feature": "Size",
+      "value": "14\"L x 5\"W x 28\"H"
+    },
+    {
+      "feature": "Led Make",
+      "value": "CREE / BLX / LUMI / OSRAM"
+    },
+    {
+      "feature": "LED Source",
+      "value": "5050"
+    },
+    {
+      "feature": "Operating Temperature",
+      "value": "45°-50°C"
+    },
+    {
+      "feature": "Burning Hours",
+      "value": "40,000 + hours"
+    },
+    {
+      "feature": "IP Rating",
+      "value": "IP66"
+    },
+    {
+      "feature": "Driver",
+      "value": "FULLHAM/PHILIPS/BAG"
+    },
+    {
+      "feature": "Protocol",
+      "value": "DMX, ArtNET ,SPI"
+    },
+    {
+      "feature": "Warranty",
+      "value": "5 Years"
+    },
+    {
+      "feature": "Body Material",
+      "value": "Aluminium/Stainless Steel"
     }
   ],
   "tree-highlighter-lights-2_specifi": [
@@ -12513,40 +12641,80 @@ const legacyProductSpecs = {
       "value": "Silver"
     },
     {
+      "feature": "Shape",
+      "value": "Rectangle"
+    },
+    {
       "feature": "Material",
       "value": "Metal"
+    },
+    {
+      "feature": "Finish Type",
+      "value": "Selected high-end eco-friendly paint"
     },
     {
       "feature": "Light Source Type",
       "value": "SMD RGB 4in1 LED (3000K)"
     },
     {
+      "feature": "Shade Material",
+      "value": "Acrylonitrile Butadiene Styrene"
+    },
+    {
       "feature": "Power Source",
       "value": "Solar Powered"
+    },
+    {
+      "feature": "Number of Batteries",
+      "value": "1 Lithium Ion batteries required."
     },
     {
       "feature": "Style",
       "value": "Cool Light Tree Lamp"
     },
     {
+      "feature": "Voltage",
+      "value": "220 Volts"
+    },
+    {
       "feature": "Brightness",
       "value": "9999 Lumen"
+    },
+    {
+      "feature": "Battery Description",
+      "value": "Lithium-Ion"
     },
     {
       "feature": "Maximum Compatible Light Source Wattage",
       "value": "12 Watts"
     },
     {
+      "feature": "Mounting Type",
+      "value": "Easy manual installation"
+    },
+    {
       "feature": "Number of Light Sources",
       "value": "10"
+    },
+    {
+      "feature": "Are Batteries Included",
+      "value": "No"
     },
     {
       "feature": "Product Dimensions",
       "value": "20\"L x 15\"W x 3\"H"
     },
     {
+      "feature": "Special Features",
+      "value": "Waterproof"
+    },
+    {
       "feature": "Shade Color",
       "value": "Multicolour"
+    },
+    {
+      "feature": "Protection Rating",
+      "value": "IP67"
     }
   ],
   "tree-highlighter-lights-6_specifi": [
@@ -12555,40 +12723,80 @@ const legacyProductSpecs = {
       "value": "Black"
     },
     {
+      "feature": "Shape",
+      "value": "Rectangle"
+    },
+    {
       "feature": "Material",
       "value": "Metal"
+    },
+    {
+      "feature": "Finish Type",
+      "value": "Selected high-end eco-friendly paint"
     },
     {
       "feature": "Light Source Type",
       "value": "SMD RGB 4in1 LED (2000K)"
     },
     {
+      "feature": "Shade Material",
+      "value": "Acrylonitrile Butadiene Styrene"
+    },
+    {
       "feature": "Power Source",
       "value": "Solar Powered"
+    },
+    {
+      "feature": "Number of Batteries",
+      "value": "1 Lithium Ion batteries required."
     },
     {
       "feature": "Style",
       "value": "Cool Light Tree Lamp"
     },
     {
+      "feature": "Voltage",
+      "value": "220 Volts"
+    },
+    {
       "feature": "Brightness",
       "value": "9999 Lumen"
+    },
+    {
+      "feature": "Battery Description",
+      "value": "Lithium-Ion"
     },
     {
       "feature": "Maximum Compatible Light Source Wattage",
       "value": "12 Watts"
     },
     {
+      "feature": "Mounting Type",
+      "value": "Easy manual installation"
+    },
+    {
       "feature": "Number of Light Sources",
       "value": "8"
+    },
+    {
+      "feature": "Are Batteries Included",
+      "value": "No"
     },
     {
       "feature": "Product Dimensions",
       "value": "3\"L x 2\"W x 1\"H"
     },
     {
+      "feature": "Special Features",
+      "value": "Waterproof"
+    },
+    {
       "feature": "Shade Color",
       "value": "Multicolour"
+    },
+    {
+      "feature": "Protection Rating",
+      "value": "IP67"
     }
   ],
   "tree-highlighters_specifi": [
@@ -12597,28 +12805,56 @@ const legacyProductSpecs = {
       "value": "Business black"
     },
     {
+      "feature": "Shape",
+      "value": "Camber"
+    },
+    {
       "feature": "Material",
       "value": "Metal"
+    },
+    {
+      "feature": "Finish Type",
+      "value": "Selected high-end eco-friendly paint"
     },
     {
       "feature": "Light Source",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
     {
+      "feature": "Shade Material",
+      "value": "Acrylonitrile Butadiene Styrene"
+    },
+    {
       "feature": "Brightness",
       "value": "9999 Lumen"
+    },
+    {
+      "feature": "Style",
+      "value": "Cool Light Tree Lamp"
     },
     {
       "feature": "Number of Light Sources",
       "value": "32"
     },
     {
+      "feature": "Mounting Type",
+      "value": "Easy manual installation"
+    },
+    {
       "feature": "Product Dimensions",
       "value": "14\"L x 9\"W x 4\"H"
     },
     {
+      "feature": "Special Features",
+      "value": "Waterproof"
+    },
+    {
       "feature": "Shade Color",
       "value": "Blue/ Green"
+    },
+    {
+      "feature": "Protection Rating",
+      "value": "IP66"
     },
     {
       "feature": "Burning Hours",
@@ -13209,10 +13445,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -13573,10 +13805,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "15°, 30°, 45°"
-    },
-    {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
     },
     {
       "feature": "Led Make",
@@ -13941,10 +14169,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -14307,10 +14531,6 @@ const legacyProductSpecs = {
       "value": "15°, 30°, 45°"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -14449,10 +14669,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -14947,10 +15163,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -15023,10 +15235,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -15521,10 +15729,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -15597,10 +15801,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -15927,10 +16127,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -16003,10 +16199,6 @@ const legacyProductSpecs = {
     {
       "feature": "Beam Angle",
       "value": "120°-360°"
-    },
-    {
-      "feature": "Dimensions",
-      "value": "300*300 , 600*600"
     },
     {
       "feature": "Led Make",
@@ -16333,10 +16525,6 @@ const legacyProductSpecs = {
       "value": "100MM"
     },
     {
-      "feature": "Size",
-      "value": "1000MM (Customized)"
-    },
-    {
       "feature": "Led Make",
       "value": "CREE / BLX / LUMI / OSRAM"
     },
@@ -16388,4 +16576,3 @@ const legacyProductSpecs = {
 };
 
 export default legacyProductSpecs;
-
