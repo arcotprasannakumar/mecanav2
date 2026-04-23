@@ -111,7 +111,7 @@ function ProductsGrid() {
               <img
                 src={product.image}
                 alt={product.title}
-                className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105 sm:p-10"
+                className="h-full w-full scale-[1.12] object-contain p-3 transition-transform duration-500 group-hover:scale-[1.16] sm:p-4"
               />
             </div>
             <h2 className="min-h-[56px] px-4 py-3 font-['Poppins',sans-serif] text-[18px] font-light leading-8 text-[#111]">

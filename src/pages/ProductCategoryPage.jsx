@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PageMeta from "../components/PageMeta";
 import StatusPanel from "../components/StatusPanel";
@@ -9,33 +9,32 @@ import {
 } from "../data/masterData";
 
 function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) {
-  const initialOpen = useMemo(() => activeCategorySlug ?? null, [activeCategorySlug]);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [openCategory, setOpenCategory] = useState(initialOpen);
+  const [openCategory, setOpenCategory] = useState(null);
 
   const toggleCategory = (slug) => {
     setOpenCategory((current) => (current === slug ? null : slug));
   };
 
   return (
-    <aside className="w-full bg-[#030303] lg:w-[280px] lg:shrink-0 lg:border-r lg:border-[#ccc]">
-      <div className="bg-[#030303] px-4 pt-4 lg:hidden">
+    <aside className="w-full bg-[#030303] p-4 lg:w-[280px] lg:shrink-0 lg:border-r lg:border-[#ccc] lg:px-4 lg:py-6">
+      <div className="bg-[#030303]">
         <button
           type="button"
-          className="flex w-full items-center justify-between rounded-[3px] border border-[#141414] bg-black px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.04em] text-white"
+          className="flex items-center gap-1.5 bg-transparent p-0 text-left font-['Poppins',sans-serif] text-[14px] font-normal normal-case leading-none text-white"
           onClick={() => setIsMobileOpen((current) => !current)}
         >
           <span>Categories</span>
-          <span className="text-base leading-none">{isMobileOpen ? "▴" : "▾"}</span>
+          <span className="text-[10px] leading-none">{isMobileOpen ? "▴" : "▾"}</span>
         </button>
       </div>
 
       <div
-        className={`bg-[#030303] px-5 pb-5 pt-4 transition-all duration-200 lg:block lg:h-full lg:px-4 lg:py-6 ${
+        className={`bg-[#030303] pt-3 transition-all duration-200 lg:block ${
           isMobileOpen ? "block" : "hidden"
         }`}
       >
-        <div className="space-y-[14px] bg-[#030303]">
+        <div className="space-y-4 bg-[#030303]">
         {categories.map((category) => {
           const isOpen = openCategory === category.slug;
           const items = category.sidebarItems ?? [];
@@ -46,23 +45,21 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
               <button
                 type="button"
                 aria-expanded={isOpen}
-                className={`flex min-h-[52px] w-full items-center justify-between rounded-[3px] border border-[#050505] bg-black px-4 py-2.5 text-left font-['Poppins',sans-serif] text-[13px] font-semibold uppercase leading-5 tracking-[0.02em] text-white transition-colors hover:bg-[#080808] ${
-                  activeCategorySlug === category.slug ? "ring-1 ring-white/25" : ""
-                }`}
+                className="flex min-h-[42px] w-full items-center justify-between rounded-[6px] bg-black px-4 py-[0.7rem] text-left font-['Poppins',sans-serif] text-[13px] font-bold uppercase leading-[1.2] text-white shadow-[0_2px_5px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:scale-[1.03] hover:bg-[#050505]"
                 onClick={() => toggleCategory(category.slug)}
               >
-                <span>{category.title}</span>
-                <span className="text-[15px] leading-none text-white">{isOpen ? "▼" : "▶"}</span>
+                <span className="min-w-0 pr-3">{category.title}</span>
+                <span className="shrink-0 text-[13px] leading-none text-white">{isOpen ? "▾" : "▶"}</span>
               </button>
 
               <div
-                className={`overflow-hidden border-l-[3px] border-white bg-[#2d2d2d] transition-all duration-300 ${
-                  isOpen ? "max-h-[900px] px-4 pb-2.5 pt-2.5 opacity-100" : "max-h-0 px-4 py-0 opacity-0"
+                className={`overflow-hidden border-l-[3px] border-white bg-[#2e2e2e] transition-all duration-300 ${
+                  isOpen ? "max-h-[900px] rounded-b-[6px] px-4 pb-2 pt-2 opacity-100" : "max-h-0 px-4 py-0 opacity-0"
                 }`}
               >
                 <Link
                   to={`/products/category/${category.slug}`}
-                  className="flex items-start gap-2.5 py-[7px] font-['Poppins',sans-serif] text-[13px] font-light leading-[1.5] text-white transition-colors hover:text-cyan-300"
+                  className="flex items-start gap-1.5 py-[0.4rem] font-['Helvetica Neue',Helvetica,Arial,sans-serif] text-[12px] font-extralight leading-[1.45] tracking-[0.3px] text-white transition-colors hover:text-cyan-300"
                 >
                   <span className="mt-[3px] text-[13px] leading-none text-white">▶</span>
                   Browse category
@@ -72,7 +69,7 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
                   <Link
                     key={item.slug}
                     to={item.to}
-                    className="flex items-start gap-2.5 py-[7px] font-['Poppins',sans-serif] text-[13px] font-light leading-[1.5] text-white transition-colors hover:text-cyan-300"
+                    className="flex items-start gap-1.5 py-[0.4rem] font-['Helvetica Neue',Helvetica,Arial,sans-serif] text-[12px] font-extralight leading-[1.45] tracking-[0.3px] text-white transition-colors hover:text-cyan-300"
                   >
                     <span className="mt-[3px] text-[13px] leading-none text-white">▶</span>
                     {item.label}
@@ -88,29 +85,23 @@ function ProductSidebar({ categories, activeCategorySlug, productCounts = {} }) 
   );
 }
 
-function ProductCard({ title, image, to, className = "", captionClassName = "" }) {
+function ProductCard({ title, image, to }) {
   return (
-    <article
-      className={`group min-w-0 overflow-hidden rounded-none bg-[#eeeeee] text-left max-lg:mx-auto max-lg:w-full max-lg:max-w-[430px] ${className}`}
-    >
-      <Link to={to} className="flex h-full min-w-0 flex-col">
-        <div className="flex aspect-[1.28/1] min-h-0 items-center justify-center overflow-hidden bg-[#eeeeee]">
-          <img
-            src={image}
-            alt={title}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-contain p-1.5 transition-transform duration-500 group-hover:scale-105 sm:p-2"
-          />
-        </div>
-        <div className="min-w-0 bg-transparent px-3 pb-3 pt-2 sm:px-4 sm:pb-4">
-          <h2
-            className={`truncate font-['Poppins',sans-serif] text-[13px] font-light leading-5 text-[#111] sm:text-[14px] ${captionClassName}`}
-            title={title}
-          >
-            {title}
-          </h2>
-        </div>
+    <article className="group relative min-w-0 overflow-hidden bg-[#eeeeee] text-left transition-transform duration-300">
+      <Link to={to} className="relative block aspect-[1/1] h-full min-w-0 overflow-hidden bg-[#eeeeee]">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <h2
+          className="absolute bottom-0 left-0 m-0 w-full px-2 py-[0.7rem] text-left font-['Poppins',sans-serif] text-[15px] font-light leading-[1.5] text-[#6e6e6e] transition-colors"
+          title={title}
+        >
+          {title}
+        </h2>
       </Link>
     </article>
   );
@@ -159,9 +150,9 @@ function ProductCategoryPage() {
             productCounts={productCounts}
           />
 
-          <main className="min-w-0 flex-1 bg-[#fffafa] px-5 pb-6 sm:px-6 md:px-8 lg:px-10">
+          <main className="min-w-0 flex-1 bg-[#fffafa] px-4 pb-4 sm:px-8 sm:pb-8">
             {displayProducts.length ? (
-              <div className="mx-auto mt-10 grid w-full max-w-[1500px] grid-cols-1 gap-x-5 gap-y-8 sm:mt-11 lg:mt-11 lg:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-2 lg:mt-9 lg:grid-cols-3 xl:grid-cols-4">
                 {displayProducts.map((product) => (
                   <ProductCard
                     key={product.slug}
